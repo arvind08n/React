@@ -41,20 +41,20 @@ class DishDetail extends Component{
     render(){
         return(
             <React.Fragment>
-            <div className="col-12 col-md-5 m-1">
-                <Card>
-                    <CardImg width="100%" src={this.props.selected.image} alt={this.props.selected.name}/>
-                    <CardBody>
-                        <CardTitle>{this.props.selected.name}</CardTitle>
-                        <CardText>{this.props.selected.description}</CardText>
-                    </CardBody>
-                </Card>
-            </div>
+                <div className="col-12 col-md-5 m-1">
+                    <Card>
+                        <CardImg width="100%" src={this.props.selected.image} alt={this.props.selected.name}/>
+                        <CardBody>
+                            <CardTitle>{this.props.selected.name}</CardTitle>
+                            <CardText>{this.props.selected.description}</CardText>
+                        </CardBody>
+                    </Card>
+                </div>
 
-            <div className="col-12 col-md-5 m-1">
-                <h4>Comments</h4>
-                {this.renderComments(this.props.selected.comments)}    
-            </div>
+                <div className="col-12 col-md-5 m-1">
+                    <h4>Comments</h4>
+                    {this.renderComments(this.props.selected.comments)}    
+                </div>
             </React.Fragment>
         );
     }
