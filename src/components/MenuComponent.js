@@ -8,11 +8,6 @@ class Menu extends Component {
         this.state = {
            selectedDish: null
         }
-        console.log('Menu comp constructor invoked')
-    }
-
-    componentDidMount(){
-      console.log('Menu comp componentdidmount invoked')
     }
 
     onDishSelect(dish){
@@ -39,13 +34,13 @@ class Menu extends Component {
                 <Card onClick={() => this.onDishSelect(dish)}>
                   <CardImg width="100%" src={dish.image} alt={dish.name} />
                   <CardImgOverlay>
-                    <CardTitle>{dish.name}</CardTitle>
+                    <CardTitle><strong>{dish.name}</strong></CardTitle>
                   </CardImgOverlay>
                 </Card>
               </div>
             );
         });
-        console.log('Menu comp render invoked')
+        
         return (
           <div className="container">
             <div className="row">

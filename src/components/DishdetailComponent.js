@@ -32,6 +32,27 @@ class DishDetail extends Component{
         }
     }
 
+    renderDish(dish){
+        if(dish!=null){
+            return(
+                <Card>
+                    <CardImg width="100%" src={this.props.selected.image} alt={this.props.selected.name}/>
+                    <CardBody>
+                        <CardTitle><strong>{this.props.selected.name}</strong></CardTitle>
+                        <CardText>{this.props.selected.description}</CardText>
+                    </CardBody>
+                </Card>
+            )
+        }
+
+        else{
+            return(
+                <div>
+                </div>
+            )
+        }
+    }
+
     dateFormat(date){
         const op={year: 'numeric', month: 'short', day: 'numeric'}
         const d=new Date(date)
@@ -42,13 +63,7 @@ class DishDetail extends Component{
         return(
             <React.Fragment>
                 <div className="col-12 col-md-5 m-1">
-                    <Card>
-                        <CardImg width="100%" src={this.props.selected.image} alt={this.props.selected.name}/>
-                        <CardBody>
-                            <CardTitle>{this.props.selected.name}</CardTitle>
-                            <CardText>{this.props.selected.description}</CardText>
-                        </CardBody>
-                    </Card>
+                    {this.renderDish(this.props.selected)}
                 </div>
 
                 <div className="col-12 col-md-5 m-1">
