@@ -7,7 +7,7 @@ class DishDetail extends Component{
         super(props);
     }
 
-    renderComments(comments){
+    renderComments=(comments)=>{
         if(comments!=null){
             const comm=comments.map(c => {
                 return(
@@ -32,23 +32,29 @@ class DishDetail extends Component{
         }
     }
 
-    renderDish(dish){
+    renderDish=(dish)=>{
         if(dish!=null){
             return(
-                <Card>
-                    <CardImg width="100%" src={this.props.selected.image} alt={this.props.selected.name}/>
-                    <CardBody>
-                        <CardTitle><strong>{this.props.selected.name}</strong></CardTitle>
-                        <CardText>{this.props.selected.description}</CardText>
-                    </CardBody>
-                </Card>
+                <React.Fragment>
+                    <div className="col-12 col-md-5 m-1">
+                        <Card>
+                            <CardImg width="100%" src={dish.image} alt={dish.name}/>
+                            <CardBody>
+                                <CardTitle><strong>{dish.name}</strong></CardTitle>
+                                <CardText>{dish.description}</CardText>
+                            </CardBody>
+                        </Card>
+                    </div>
+                        <div className="col-12 col-md-5 m-1">
+                        <h4>Comments</h4>
+                        {this.renderComments(dish.comments)}    
+                    </div>
+                </React.Fragment>
             )
         }
-
         else{
             return(
-                <div>
-                </div>
+                <div/>
             )
         }
     }
@@ -60,17 +66,13 @@ class DishDetail extends Component{
     }
 
     render(){
+        const {dish}=this.props;
         return(
-            <React.Fragment>
-                <div className="col-12 col-md-5 m-1">
-                    {this.renderDish(this.props.selected)}
+            <div class="container">
+                <div className="row">
+                    {this.renderDish(dish)}
                 </div>
-
-                <div className="col-12 col-md-5 m-1">
-                    <h4>Comments</h4>
-                    {this.renderComments(this.props.selected.comments)}    
-                </div>
-            </React.Fragment>
+            </div>
         );
     }
 }
