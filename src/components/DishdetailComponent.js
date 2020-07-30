@@ -3,10 +3,6 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 class DishDetail extends Component{
-    constructor(props){
-        super(props);
-    }
-
     renderComments=(comments)=>{
         if(comments!=null){
             const comm=comments.map(c => {
@@ -68,7 +64,7 @@ class DishDetail extends Component{
     render(){
         const {dish}=this.props;
         return(
-            <div class="container">
+            <div className="container">
                 <div className="row">
                     {this.renderDish(dish)}
                 </div>
