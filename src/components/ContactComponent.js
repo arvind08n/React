@@ -31,13 +31,11 @@ class Contact extends Component{
     }
 
     handleSubmit(values){
-        console.log("Current State is : "+JSON.stringify(values));
-        alert("Current State is : "+JSON.stringify(values));
+        this.props.postFeedback(values);
         this.props.resetFeedbackForm();
     }
 
     render(){
-        // const errors=this.validate(this.state.firstname,this.state.lastname,this.state.telnum,this.state.email)
         return(
             <div className="container">
                 <div className="row">
