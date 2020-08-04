@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {Link} from 'react-router-dom';
 import {Control, LocalForm, Errors} from 'react-redux-form';
 import {Loading} from './LoadingComponent';
-import { baseURL } from '../shared/baseUrl';
 import {baseUrl} from '../shared/baseUrl';
 
     function RenderDish({dish}){
@@ -22,7 +21,7 @@ import {baseUrl} from '../shared/baseUrl';
         );       
     }
 
-    function RenderComments({comments,addComment,dishId})
+    function RenderComments({comments,postComment,dishId})
     {
         if(comments != null)
             return(
@@ -38,7 +37,7 @@ import {baseUrl} from '../shared/baseUrl';
                             );
                         })}
                     </ul>
-                    <CommentForm dishId={dishId} addComment={addComment}/>
+                    <CommentForm dishId={dishId} postComment={postComment}/>
                 </div>
             );
         else 
@@ -83,7 +82,7 @@ import {baseUrl} from '../shared/baseUrl';
                     <div className="row">
                         <RenderDish dish={props.dish}/>
                         <RenderComments comments={props.comments}
-                            addComment={props.addComment}
+                            postComment={props.postComment}
                             dishId={props.dish.id}/>
                     </div>
                 </div>
@@ -118,7 +117,7 @@ export class CommentForm extends Component{
 
     handleSubmit(values){
         this.toggleModal();
-        this.props.addComment(this.props.dishId,values.rating,values.author,values.comment);
+        this.props.postComment(this.props.dishId,values.rating,values.author,values.comment);
     }
 
     render(){
